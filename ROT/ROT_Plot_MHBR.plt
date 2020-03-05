@@ -114,7 +114,7 @@ set cbtics  norangelimit autofreq
 set rtics axis in scale 1,0.5 nomirror norotate  autojustify
 set rtics  norangelimit autofreq 
 unset ttics
-set title "{/Times:Bold Ort-Zeit-Relation eines Maxwellschen Rad}" 
+set title "{/Times:Bold Ort-Zeit-Relation eines Maxwellschen Rads}" 
 set title  font "" textcolor lt -1 norotate
 set timestamp bottom 
 set timestamp "" 
@@ -122,18 +122,18 @@ set timestamp  font "" textcolor lt -1 norotate
 set trange [ * : * ] noreverse nowriteback
 set urange [ * : * ] noreverse nowriteback
 set vrange [ * : * ] noreverse nowriteback
-set xlabel "Höhe (cm)" 
+set xlabel "Periodendauer (sek^2)" 
 set xlabel  font "" textcolor lt -1 norotate
 set x2label "" 
 set x2label  font "" textcolor lt -1 norotate
-set xrange [ 35.0000 : 75.0000 ] noreverse writeback
-set x2range [ -45.0000 : -5.00000 ] noreverse writeback
-set ylabel "Periodendauer (sek)" 
+set xrange [ 33.0625 : 116.640 ] noreverse writeback
+set x2range [ 33.0625 : 116.640 ] noreverse writeback
+set ylabel "Höhe (cm)" 
 set ylabel  font "" textcolor lt -1 rotate
 set y2label "" 
 set y2label  font "" textcolor lt -1 rotate
-set yrange [ 4.50000 : 9.50000 ] noreverse writeback
-set y2range [ -1.44986 : 3.67502 ] noreverse writeback
+set yrange [ 32.0000 : 76.0000 ] noreverse writeback
+set y2range [ 36.6700 : 80.3700 ] noreverse writeback
 set zlabel "" 
 set zlabel  font "" textcolor lt -1 norotate
 set zrange [ * : * ] noreverse writeback
@@ -166,17 +166,16 @@ set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 f(x)=m*x+b
 GNUTERM = "wxt"
-m = 0.115450794941717
-b = 1.16607250999503
+m = 0.542025730490401
+b = 12.2190390767112
 FIT_CONVERGED = 1
-FIT_NDF = 16
-FIT_STDFIT = 0.383018924546947
-FIT_WSSR = 2.3472559449776
-FIT_P = 0.999968320257098
+FIT_NDF = 13
+FIT_STDFIT = 1.88755319407871
+FIT_WSSR = 46.3171417861975
+FIT_P = 1.25928058002378e-05
 FIT_NITER = 1
-m_err = 0.00764804533968519
-b_err = 0.395189097743894
-## Last datafile plotted: "data.dat"
-plot "data.dat" title "Messwerte", f(x) title "Ausgleichsgerade"
-## fit f(x) "data.dat" via m,b lw3
+m_err = 0.0199836877224869
+b_err = 1.47619188683662
+## Last datafile plotted: "data_MHBR.dat"
+plot "data_MHBR.dat" using ($1**2):2 title "Messwerte" lw 2, f(x) title 'Ausgleichsgerade' lw 2
 #    EOF
